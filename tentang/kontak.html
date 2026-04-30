@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kontak Mediya — Hubungi tim redaksi, iklan, dan kerjasama kami.">
+  <title>Kontak | Mediya</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script>if(localStorage.getItem('theme')==='dark'||(!('theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark');</script>
+  <style>
+    .about-hero { background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; padding: 70px 20px; text-align: center; }
+    .about-hero h1 { font-size: 40px; font-weight: 900; margin-bottom: 14px; }
+    .about-hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+    .about-wrapper { max-width: 1100px; margin: 0 auto; padding: 50px 20px 80px; display: grid; grid-template-columns: 240px 1fr; gap: 40px; align-items: start; }
+    .about-sidenav { position: sticky; top: 90px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 10px 0; box-shadow: var(--shadow-sm); }
+    .about-sidenav h4 { font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); padding: 14px 20px 8px; }
+    .about-sidenav a { display: flex; align-items: center; gap: 10px; padding: 12px 20px; font-size: 14px; font-weight: 600; color: var(--text-dark); border-left: 3px solid transparent; transition: var(--transition); }
+    .about-sidenav a:hover, .about-sidenav a.active { background: rgba(230,57,70,0.06); color: var(--primary-color); border-left-color: var(--primary-color); }
+    .about-sidenav a i { width: 18px; text-align: center; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 340px; gap: 30px; }
+    .contact-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 30px; box-shadow: var(--shadow-sm); margin-bottom: 24px; }
+    .contact-card h2 { font-size: 20px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px; }
+    .contact-card .subtitle { font-size: 14px; color: var(--text-light); margin-bottom: 24px; }
+    .contact-form input, .contact-form textarea {
+      width: 100%; padding: 12px 16px; border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm); font-size: 14px; font-family: inherit;
+      background: var(--bg-color); color: var(--text-dark);
+      transition: var(--transition); margin-bottom: 14px; box-sizing: border-box;
+    }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(230,57,70,0.1); }
+    .contact-form textarea { resize: vertical; min-height: 140px; }
+    .contact-form button { width: 100%; padding: 13px; background: var(--primary-color); color: white; border: none; border-radius: var(--radius-sm); font-size: 15px; font-weight: 700; cursor: pointer; transition: var(--transition); font-family: inherit; }
+    .contact-form button:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(230,57,70,0.3); }
+    .contact-info-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border-color); }
+    .contact-info-item:last-child { border-bottom: none; }
+    .contact-icon { width: 42px; height: 42px; background: rgba(230,57,70,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 16px; flex-shrink: 0; }
+    .contact-info-item h4 { font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+    .contact-info-item p, .contact-info-item a { font-size: 14px; color: var(--text-light); }
+    .contact-info-item a { color: var(--primary-color); }
+    .contact-special-list { list-style: none; }
+    .contact-special-list li { padding: 12px 0; border-bottom: 1px solid var(--border-color); font-size: 14px; color: var(--text-light); }
+    .contact-special-list li:last-child { border-bottom: none; }
+    .contact-special-list li strong { color: var(--text-dark); }
+    .social-row { display: flex; gap: 12px; margin-top: 16px; }
+    .social-btn { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--primary-color); color: white; font-size: 16px; transition: var(--transition); }
+    .social-btn:hover { transform: translateY(-2px); opacity: 0.85; }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .about-wrapper { grid-template-columns: 1fr; } .about-sidenav { position: static; display: flex; flex-wrap: wrap; padding: 10px; gap: 6px; } .about-sidenav h4 { display: none; } .about-sidenav a { border-left: none; border-radius: var(--radius-sm); padding: 8px 14px; border-bottom: 2px solid transparent; } .about-sidenav a.active, .about-sidenav a:hover { border-bottom-color: var(--primary-color); border-left-color: transparent; } }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-logo" onclick="window.location.href='/'" style="display: flex; align-items: center; cursor: pointer;">
+        <img src="/assets/img/logo.png" alt="Mediya Logo" style="height: 40px; margin-right: 12px; vertical-align: middle;">
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <span class="logo-title" style="font-size: 26px; font-weight: 800; background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px; line-height: 1.1;">Mediya</span>
+          <span class="logo-tagline" style="font-size: 11px; font-weight: 500; color: var(--text-light); letter-spacing: 0.5px; text-transform: uppercase;">Portal Berita Terpercaya</span>
+        </div>
+      </div>
+                            <ul class="navbar-menu">
+        <li><a href="/">Beranda</a></li>
+        <li><a href="/kategori/edukasi.html">Edukasi</a></li>
+        <li><a href="/kategori/ekonomi.html">Ekonomi</a></li>
+        <li><a href="/kategori/hiburan.html">Hiburan</a></li>
+        <li><a href="/kategori/kriminal.html">Kriminal</a></li>
+        <li><a href="/kategori/olahraga.html">Olahraga</a></li>
+        <li><a href="/kategori/politik.html">Politik</a></li>
+        <li><a href="/kategori/teknologi.html">Teknologi</a></li>
+        <li><a href="/tentang/index.html">Tentang</a></li>
+      </ul>
+    <div class="navbar-search">
+      <input type="text" placeholder="Cari berita...">
+      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </div>
+</nav>
+
+  <!-- BREADCRUMBS -->
+  <div class="breadcrumbs">
+    <div class="breadcrumbs-container">
+      <a href="/"><i class="fa-solid fa-house"></i> Beranda</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <a href="/tentang/index.html">Tentang</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Kontak</span>
+    </div>
+  </div>
+
+  <div class="about-hero">
+    <h1>Hubungi Kami</h1>
+    <p>Tim Mediya siap merespons pertanyaan, masukan, dan penawaran kerjasama Anda.</p>
+  </div>
+  <div class="about-wrapper">
+    <nav class="about-sidenav">
+      <h4>Menu</h4>
+      <a href="/tentang/index.html"><i class="fa-solid fa-building"></i> Profil</a>
+      <a href="/tentang/visi-misi.html"><i class="fa-solid fa-bullseye"></i> Visi &amp; Misi</a>
+      <a href="/tentang/redaksi.html"><i class="fa-solid fa-users"></i> Redaksi</a>
+      <a href="/tentang/proses.html"><i class="fa-solid fa-gears"></i> Proses Redaksi</a>
+      <a href="/tentang/kontak.html" class="active"><i class="fa-solid fa-envelope"></i> Kontak</a>
+    </nav>
+    <main>
+      <div class="contact-grid">
+        <!-- Kiri: Form -->
+        <div>
+          <div class="contact-card">
+            <h2>Formulir Kontak</h2>
+            <p class="subtitle">Kirim pesan untuk redaksi, laporan berita, atau penawaran kerjasama.</p>
+            <form class="contact-form" action="mailto:info@mediya.id" method="post" enctype="text/plain">
+              <input type="text" name="nama" placeholder="Nama lengkap Anda" required>
+              <input type="email" name="email" placeholder="Alamat email" required>
+              <input type="text" name="subjek" placeholder="Subjek pesan">
+              <textarea name="pesan" placeholder="Tulis pesan Anda di sini..." required></textarea>
+              <button type="submit"><i class="fa-solid fa-paper-plane"></i> &nbsp;Kirim Pesan</button>
+            </form>
+          </div>
+
+          <div class="contact-card">
+            <h2>Alamat &amp; Informasi</h2>
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <h4>Alamat Redaksi</h4>
+                <p>Jalan Merdeka No. 10, Jakarta Pusat, DKI Jakarta 10110</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <h4>Email Umum</h4>
+                <a href="mailto:info@mediya.id">info@mediya.id</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <h4>Telepon</h4>
+                <p>+62 21 555 0123 (Senin–Jumat, 09.00–17.00 WIB)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kanan: Kontak Khusus & Sosmed -->
+        <div>
+          <div class="contact-card">
+            <h2>Kontak Khusus</h2>
+            <ul class="contact-special-list">
+              <li><strong>Redaksi:</strong> redaksi@mediya.id</li>
+              <li><strong>Iklan &amp; Kemitraan:</strong> iklan@mediya.id</li>
+              <li><strong>Karier / HRD:</strong> hr@mediya.id</li>
+              <li><strong>Pengaduan Konten:</strong> pengaduan@mediya.id</li>
+            </ul>
+          </div>
+          <div class="contact-card">
+            <h2>Media Sosial</h2>
+            <p style="font-size:14px;color:var(--text-light);margin-bottom:0;">Ikuti kami untuk mendapatkan berita terkini langsung di linimasa Anda.</p>
+            <div class="social-row">
+              <a href="#" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-btn" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-btn" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+                          <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <!-- TENTANG KAMI -->
+        <div class="footer-section">
+          <h5>TENTANG KAMI</h5>
+          <ul>
+            <li><a href="../tentang/index.html">Profil</a></li>
+            <li><a href="../tentang/visi-misi.html">Visi &amp; Misi</a></li>
+            <li><a href="../tentang/redaksi.html">Redaksi</a></li>
+            <li><a href="../tentang/proses.html">Proses Redaksi</a></li>
+            <li><a href="../tentang/kontak.html">Hubungi Kami</a></li>
+          </ul>
+        </div>
+        <!-- KATEGORI BERITA -->
+        <div class="footer-section">
+          <h5>KATEGORI BERITA</h5>
+          <ul>
+            <li><a href="../kategori/edukasi.html">Edukasi</a></li>
+            <li><a href="../kategori/ekonomi.html">Ekonomi</a></li>
+            <li><a href="../kategori/hiburan.html">Hiburan</a></li>
+            <li><a href="../kategori/kriminal.html">Kriminal</a></li>
+            <li><a href="../kategori/olahraga.html">Olahraga</a></li>
+            <li><a href="../kategori/politik.html">Politik</a></li>
+            <li><a href="../kategori/teknologi.html">Teknologi</a></li>
+          </ul>
+        </div>
+        <!-- IKUTI KAMI -->
+        <div class="footer-section">
+          <h5>IKUTI KAMI</h5>
+          <ul class="footer-social-list">
+            <li><a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a></li>
+            <li><a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+            <li><a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+            <li><a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a></li>
+          </ul>
+        </div>
+        <!-- KEBIJAKAN -->
+        <div class="footer-section">
+          <h5>KEBIJAKAN</h5>
+          <ul>
+            <li><a href="#">Kebijakan Privasi</a></li>
+            <li><a href="#">Syarat &amp; Ketentuan</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Mediya - Portal Berita Indonesia. Semua hak cipta dilindungi. | Diterbitkan dengan <i class="fa-solid fa-heart" style="color: red;"></i> untuk Anda</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/theme.js"></script>
+</body>
+</html>
